@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/movie_progress"
+            android:visibility="invisible"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true" />
+
+        <LinearLayout
+            android:id="@+id/movie_layout"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="io.github.umren.watcher.MainActivity"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            tools:showIn="@layout/app_bar_main">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+
+                <ImageView
+                    android:id="@+id/movie_preview_image"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    app:srcCompat="@drawable/example_movie"
+                    android:contentDescription="Movie Image"
+                    android:layout_alignParentLeft="true"/>
+
+                <LinearLayout
+                    android:layout_toRightOf="@id/movie_preview_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textStyle="bold"
+                        android:text="Title"/>
+
+                    <TextView
+                        android:id="@+id/movie_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/default_value"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textStyle="bold"
+                        android:text="Genre"/>
+
+                    <TextView
+                        android:id="@+id/movie_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/default_value"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:textStyle="bold"
+                        android:text="Year"/>
+
+                    <TextView
+                        android:id="@+id/movie_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/default_value"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e7e7e7"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:text="Description"/>
+
+                <TextView
+                    android:id="@+id/movie_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_movie_desc"/>
+
+            </LinearLayout>
+
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e7e7e7"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:text="Director"/>
+
+                <TextView
+                    android:id="@+id/movie_director"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_value"/>
+
+            </LinearLayout>
+
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e7e7e7"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:text="Actors"/>
+
+                <LinearLayout
+                    android:id="@+id/movie_actors_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/default_value"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/default_value"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/default_value"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/default_value"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
