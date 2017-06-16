@@ -17,4 +17,15 @@
         This is a default description This is a default description This is a default description
     </string>
     <string name="title_activity_result">ResultActivity</string>
+
+    <string name="fragment_about">
+        Developed by umren@yandex.ru\n\nThis product uses the TMDb API but is not endorsed or certified by TMDb.
+    </string>
+
+    <string name="fragment_donate">This app is 100% free, <a href="https://github.com/umren/Watcher">open-source</a>
+        and don\'t have ads, if you enjoy it you can donate developer via
+        <a href="https://www.paypal.me/naked">Paypal</a>,
+        <a href="https://money.yandex.ru/to/41001897030626">Yandex.Money</a>,
+        <a href="https://rocketbank.ru/konstantin.shevyakov">Card Transfer</a>.
+    </string>
 </resources>
