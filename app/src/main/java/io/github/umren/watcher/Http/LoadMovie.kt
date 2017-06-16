@@ -1,5 +1,6 @@
 package io.github.umren.watcher.Http
 
+import android.util.Log
 import io.github.umren.watcher.Models.Movie
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
@@ -16,15 +17,21 @@ fun load(): Movie? {
             .build()
     val movieDb = retrofit.create(MovieDb::class.java)
 
-    val movie = movieDb.loadMovie(
-            api = MovieDbCred.apiKey, page = pageResult, vote_count = 10, vote_average = 5)
-            .execute().body() ?: return null
+    try {
+        val movie = movieDb.loadMovie(
+                api = MovieDbCred.apiKey, page = pageResult, vote_count = 10, vote_average = 5)
+                .execute().body() ?: return null
 
-    val credits = movieDb.loadCredits(
-            api = MovieDbCred.apiKey, movie_id = movie.results[movieResult].id)
-            .execute().body() ?: return null
+        val credits = movieDb.loadCredits(
+                api = MovieDbCred.apiKey, movie_id = movie.results[movieResult].id)
+                .execute().body() ?: return null
 
-    return transform(movie.results[movieResult], credits)
+        return transform(movie.results[movieResult], credits)
+    } catch (e : Exception) {
+        Log.d("LoadException", "Could not load movie: $e")
+    }
+
+    return null
 }
 
 fun transform(movie: DiscoverResult, credits: CreditsResponse): Movie {

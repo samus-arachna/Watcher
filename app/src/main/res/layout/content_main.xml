@@ -18,6 +18,16 @@
             android:layout_centerVertical="true"
             android:layout_centerInParent="true" />
 
+        <TextView
+            android:id="@+id/movie_error"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:text="Something went wrong ;( \nTry to load another Movie!"/>
+
         <LinearLayout
             android:id="@+id/movie_layout"
             xmlns:android="http://schemas.android.com/apk/res/android"

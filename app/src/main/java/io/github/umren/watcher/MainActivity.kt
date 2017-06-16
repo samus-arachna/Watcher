@@ -90,7 +90,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.action_favorite -> {
-                clickBtnFavorite(item)
+                if (movie_error.visibility != View.VISIBLE) {
+                    clickBtnFavorite(item)
+                }
+
                 return true
             }
             R.id.action_refresh -> {
@@ -180,13 +183,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun hideView() {
+        movie_error.visibility = View.INVISIBLE
         movie_layout.visibility = View.INVISIBLE
         movie_progress.visibility = View.VISIBLE
         isLoading = true
     }
 
     fun showView() {
+        movie_error.visibility = View.INVISIBLE
         movie_layout.visibility = View.VISIBLE
+        movie_progress.visibility = View.INVISIBLE
+        isLoading = false
+    }
+
+    fun showError() {
+        movie_error.visibility = View.VISIBLE
+        movie_layout.visibility = View.INVISIBLE
         movie_progress.visibility = View.INVISIBLE
         isLoading = false
     }

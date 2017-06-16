@@ -27,7 +27,10 @@ class LoadMovieTask(val ctx: MainActivity) : AsyncTask<Void, Void, Void>() {
     override fun onPostExecute(result: Void?) {
         super.onPostExecute(result)
 
-        if (movie == null) return
+        if (movie == null) {
+            ctx.showError()
+            return
+        }
         val movie = movie as Movie
 
         ctx.loadView(movie)
