@@ -14,6 +14,8 @@ class DonateFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val message = TextView(context)
+        message.setPadding(50, 20, 50, 10)
+        message.textSize = 18.0F
         message.text = context.getText(R.string.fragment_donate)
         message.movementMethod = LinkMovementMethod.getInstance()
 

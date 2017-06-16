@@ -18,9 +18,7 @@
     </string>
     <string name="title_activity_result">ResultActivity</string>
 
-    <string name="fragment_about">
-        Developed by umren@yandex.ru\n\nThis product uses the TMDb API but is not endorsed or certified by TMDb.
-    </string>
+    <string name="fragment_about">Developed by <a href="umren@yandex.ru">umren@yandex.ru</a>\n\nThis product uses the TMDb API but is not endorsed or certified by TMDb.</string>
 
     <string name="fragment_donate">This app is 100% free, <a href="https://github.com/umren/Watcher">open-source</a>
         and don\'t have ads, if you enjoy it you can donate developer via:
