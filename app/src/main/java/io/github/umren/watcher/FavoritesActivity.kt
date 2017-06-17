@@ -12,7 +12,6 @@ import android.view.MenuItem
 import android.widget.AdapterView
 import io.github.umren.watcher.Adapters.FavoritesAdapter
 import io.github.umren.watcher.Fragments.AboutFragment
-import io.github.umren.watcher.Fragments.DonateFragment
 import io.github.umren.watcher.Models.WatcherDatabaseHelper
 import kotlinx.android.synthetic.main.activity_favorites.*
 import kotlinx.android.synthetic.main.content_favorites.*
@@ -83,10 +82,6 @@ class FavoritesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
             R.id.favorites -> {
 
-            }
-            R.id.donate -> {
-                val dialog = DonateFragment()
-                dialog.show(this.supportFragmentManager, "Donate")
             }
             R.id.about -> {
                 val dialog = AboutFragment()

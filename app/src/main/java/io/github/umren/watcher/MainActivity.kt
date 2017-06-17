@@ -20,7 +20,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.squareup.picasso.Picasso
 import io.github.umren.watcher.Fragments.AboutFragment
-import io.github.umren.watcher.Fragments.DonateFragment
 import kotlinx.android.synthetic.main.content_main.*
 
 
@@ -115,10 +114,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.favorites -> {
                 val i = Intent(this, FavoritesActivity::class.java)
                 startActivity(i)
-            }
-            R.id.donate -> {
-                val dialog = DonateFragment()
-                dialog.show(this.supportFragmentManager, "Donate")
             }
             R.id.about -> {
                 val dialog = AboutFragment()
