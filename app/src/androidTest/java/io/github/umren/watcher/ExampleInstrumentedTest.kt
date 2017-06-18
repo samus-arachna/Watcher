@@ -35,13 +35,14 @@ class ExampleInstrumentedTest {
 
         val newFav = Movie(
                 id = 32,
-                poster_path = "http://image.com",
-                title = "Test Drama Movie",
-                genres = "Drama",
-                release_date = "1995",
-                overview = "This is a test description for Test Drama Movie",
-                director = "Some good director",
-                cast = arrayListOf("Actor 1, Actor 2, Actor 3"))
+                poster_path = "http://image.tmdb.org/t/p/w300/6zdPIbSF9vxCBZpntNvishPo5ol.jpg",
+                title = "Awesome Movie",
+                genres = "Action, Drama, History",
+                release_date = "2017",
+                overview = "Here will be a discription of some awesome movie that this software can recommend.",
+                director = "John Doe",
+                cast = arrayListOf("Tom Cruise, Rebecca Ferguson, Brad Pitt", "Blake Lively", "Ryan Reynolds",
+                        "Emilia Clarke", "Leonardo DiCaprio", "Jessica Alba"))
 
         val db = WatcherDatabaseHelper.getInstance(appContext)
 
