@@ -2,7 +2,7 @@ package io.github.umren.watcher.Interactors.Tasks
 
 
 import android.os.AsyncTask
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 import io.github.umren.watcher.Interactors.Http.load
 import io.github.umren.watcher.Views.Activities.MainActivity
 

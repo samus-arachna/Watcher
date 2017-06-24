@@ -1,4 +1,4 @@
-package io.github.umren.watcher.Models
+package io.github.umren.watcher.Entities
 
 
 data class Movie(

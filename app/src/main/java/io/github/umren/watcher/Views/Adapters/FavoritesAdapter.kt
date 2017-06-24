@@ -1,7 +1,7 @@
 package io.github.umren.watcher.Views.Adapters
 
 import android.widget.ArrayAdapter
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View

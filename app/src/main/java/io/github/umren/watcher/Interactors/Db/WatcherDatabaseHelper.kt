@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 
 
 class WatcherDatabaseHelper(context: Context) :

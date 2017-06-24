@@ -1,7 +1,7 @@
 package io.github.umren.watcher.Interactors.Http
 
 import android.util.Log
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
 

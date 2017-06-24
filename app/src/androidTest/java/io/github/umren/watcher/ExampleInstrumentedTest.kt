@@ -2,7 +2,7 @@ package io.github.umren.watcher
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 
 import org.junit.Test

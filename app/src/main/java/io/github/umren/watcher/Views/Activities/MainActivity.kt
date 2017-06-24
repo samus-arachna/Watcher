@@ -17,7 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.squareup.picasso.Picasso
 import io.github.umren.watcher.Views.Fragments.AboutFragment
-import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Entities.Movie
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
 import io.github.umren.watcher.Interactors.Tasks.LoadMovieTask
