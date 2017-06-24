@@ -1,5 +1,7 @@
-package io.github.umren.watcher
+package io.github.umren.watcher.Views.Activities
 
+import android.R.attr.duration
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -9,17 +11,16 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.view.animation.AnimationUtils
-import io.github.umren.watcher.Models.Movie
-import io.github.umren.watcher.Models.WatcherDatabaseHelper
-import io.github.umren.watcher.Tasks.LoadMovieTask
-import android.R.attr.duration
-import android.content.Intent
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import com.squareup.picasso.Picasso
 import io.github.umren.watcher.Fragments.AboutFragment
+import io.github.umren.watcher.Models.Movie
+import io.github.umren.watcher.Models.WatcherDatabaseHelper
+import io.github.umren.watcher.R
+import io.github.umren.watcher.Tasks.LoadMovieTask
 import kotlinx.android.synthetic.main.content_main.*
 
 
