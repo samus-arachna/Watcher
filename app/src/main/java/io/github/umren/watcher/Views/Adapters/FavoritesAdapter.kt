@@ -1,4 +1,4 @@
-package io.github.umren.watcher.Adapters
+package io.github.umren.watcher.Views.Adapters
 
 import android.widget.ArrayAdapter
 import io.github.umren.watcher.Models.Movie

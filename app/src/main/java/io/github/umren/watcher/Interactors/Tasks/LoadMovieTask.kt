@@ -1,9 +1,9 @@
-package io.github.umren.watcher.Tasks
+package io.github.umren.watcher.Interactors.Tasks
 
 
 import android.os.AsyncTask
 import io.github.umren.watcher.Models.Movie
-import io.github.umren.watcher.Http.load
+import io.github.umren.watcher.Interactors.Http.load
 import io.github.umren.watcher.Views.Activities.MainActivity
 
 

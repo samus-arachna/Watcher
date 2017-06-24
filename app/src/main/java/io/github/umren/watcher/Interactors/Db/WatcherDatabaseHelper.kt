@@ -1,10 +1,11 @@
-package io.github.umren.watcher.Models
+package io.github.umren.watcher.Interactors.Db
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import io.github.umren.watcher.Models.Movie
 
 
 class WatcherDatabaseHelper(context: Context) :
@@ -39,25 +40,25 @@ class WatcherDatabaseHelper(context: Context) :
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE $TABLE_FAVORITE (" +
-                "$FIELD_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "$FIELD_MOVIE_ID INTEGER UNIQUE, " +
-                "$FIELD_IMAGELINK TEXT, " +
-                "$FIELD_TITLE TEXT, " +
-                "$FIELD_GENRE TEXT, " +
-                "$FIELD_YEAR INTEGER, " +
-                "$FIELD_DESC TEXT, " +
-                "$FIELD_DIRECTOR TEXT, " +
-                "$FIELD_ACTORS TEXT);")
+        db.execSQL("CREATE TABLE ${TABLE_FAVORITE} (" +
+                "${FIELD_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${FIELD_MOVIE_ID} INTEGER UNIQUE, " +
+                "${FIELD_IMAGELINK} TEXT, " +
+                "${FIELD_TITLE} TEXT, " +
+                "${FIELD_GENRE} TEXT, " +
+                "${FIELD_YEAR} INTEGER, " +
+                "${FIELD_DESC} TEXT, " +
+                "${FIELD_DIRECTOR} TEXT, " +
+                "${FIELD_ACTORS} TEXT);")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_FAVORITE")
+        db.execSQL("DROP TABLE IF EXISTS ${TABLE_FAVORITE}")
         onCreate(db)
     }
 
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_FAVORITE")
+        db.execSQL("DROP TABLE IF EXISTS ${TABLE_FAVORITE}")
         onCreate(db)
     }
 
@@ -87,12 +88,12 @@ class WatcherDatabaseHelper(context: Context) :
     fun removeFavorite(id: Int): Boolean {
         val db = writableDatabase
 
-        return db.delete(TABLE_FAVORITE, "$FIELD_MOVIE_ID = $id", null) > 0
+        return db.delete(TABLE_FAVORITE, "${FIELD_MOVIE_ID} = $id", null) > 0
     }
 
     fun isFavorite(id: Int): Boolean {
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_FAVORITE WHERE $FIELD_MOVIE_ID = $id"
+        val query = "SELECT * FROM ${TABLE_FAVORITE} WHERE ${FIELD_MOVIE_ID} = $id"
         val cursor = db.rawQuery(query, null)
 
         try {
@@ -112,7 +113,7 @@ class WatcherDatabaseHelper(context: Context) :
 
     fun getFavorites(): ArrayList<Movie> {
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_FAVORITE"
+        val query = "SELECT * FROM ${TABLE_FAVORITE}"
         val cursor = db.rawQuery(query, null)
 
         val movies = ArrayList<Movie>()
@@ -146,7 +147,7 @@ class WatcherDatabaseHelper(context: Context) :
 
     fun getFavorite(id: Int): Movie? {
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_FAVORITE WHERE $FIELD_MOVIE_ID = $id"
+        val query = "SELECT * FROM ${TABLE_FAVORITE} WHERE ${FIELD_MOVIE_ID} = $id"
         val cursor = db.rawQuery(query, null)
         var movie: Movie? = null
 

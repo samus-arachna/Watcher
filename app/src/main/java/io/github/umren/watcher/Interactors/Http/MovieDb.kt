@@ -1,4 +1,4 @@
-package io.github.umren.watcher.Http
+package io.github.umren.watcher.Interactors.Http
 
 import io.github.umren.watcher.movieDbKey
 import retrofit2.Call

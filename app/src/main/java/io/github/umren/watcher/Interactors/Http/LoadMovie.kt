@@ -1,4 +1,4 @@
-package io.github.umren.watcher.Http
+package io.github.umren.watcher.Interactors.Http
 
 import android.util.Log
 import io.github.umren.watcher.Models.Movie

@@ -16,11 +16,11 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import com.squareup.picasso.Picasso
-import io.github.umren.watcher.Fragments.AboutFragment
+import io.github.umren.watcher.Views.Fragments.AboutFragment
 import io.github.umren.watcher.Models.Movie
-import io.github.umren.watcher.Models.WatcherDatabaseHelper
+import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
-import io.github.umren.watcher.Tasks.LoadMovieTask
+import io.github.umren.watcher.Interactors.Tasks.LoadMovieTask
 import kotlinx.android.synthetic.main.content_main.*
 
 

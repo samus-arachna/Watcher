@@ -1,7 +1,7 @@
 package io.github.umren.watcher
 
 
-import io.github.umren.watcher.Http.load
+import io.github.umren.watcher.Interactors.Http.load
 import org.junit.Test
 
 import org.junit.Assert.*

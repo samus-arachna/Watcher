@@ -1,6 +1,8 @@
 package io.github.umren.watcher.Views.Activities
 
+import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
+import io.github.umren.watcher.Views.Fragments.AboutFragment
 import kotlinx.android.synthetic.main.activity_favorites.*
 import kotlinx.android.synthetic.main.content_favorites.*
 
@@ -36,8 +38,8 @@ class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.su
     }
 
     fun loadFavorites() {
-        val items = io.github.umren.watcher.Models.WatcherDatabaseHelper.Companion.getInstance(this).getFavorites()
-        val itemsAdapter = io.github.umren.watcher.Adapters.FavoritesAdapter(this, items)
+        val items = WatcherDatabaseHelper.Companion.getInstance(this).getFavorites()
+        val itemsAdapter = io.github.umren.watcher.Views.Adapters.FavoritesAdapter(this, items)
         favorites_list.adapter = itemsAdapter
 
         val listener = android.widget.AdapterView.OnItemClickListener { _, view, _, _ ->
@@ -72,7 +74,7 @@ class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.su
 
             }
             io.github.umren.watcher.R.id.about -> {
-                val dialog = io.github.umren.watcher.Fragments.AboutFragment()
+                val dialog = AboutFragment()
                 dialog.show(this.supportFragmentManager, "About")
             }
         }
