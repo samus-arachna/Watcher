@@ -22,7 +22,6 @@ android {
     }
 }
 
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -50,7 +49,6 @@ dependencies {
     // dagger 2
     compile "com.google.dagger:dagger:2.9"
     kapt "com.google.dagger:dagger-compiler:2.9"
-    provided 'javax.annotation:jsr250-api:1.0'
 }
 repositories {
     mavenCentral()

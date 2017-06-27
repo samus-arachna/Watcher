@@ -27,9 +27,6 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-
-    private val Presenter = MainActivityPresenter()
-
     var loadedMovie: Movie? = null
     var isLoading: Boolean = false
     var menuFavBtn: MenuItem? = null
@@ -51,6 +48,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.menu.getItem(0).isChecked = true
+
+        // TODO initialize presenter
+
 
         loadMovie()
     }
