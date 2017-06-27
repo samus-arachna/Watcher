@@ -1,10 +1,12 @@
 package io.github.umren.watcher.Views.Presenters
 
-import android.view.View
-import io.github.umren.watcher.Views.Presenter
+import io.github.umren.watcher.Interactors.Tasks.LoadMovieTask
+import io.github.umren.watcher.Views.View.MainView
 
 
-class MainActivityPresenter : Presenter<View> {
+class MainActivityPresenter : Presenter<MainView> {
+
+    lateinit private var mainView: MainView
 
     override fun onCreate() {
 
@@ -22,9 +24,12 @@ class MainActivityPresenter : Presenter<View> {
 
     }
 
-    override fun attachView(view: View) {
-
+    override fun attachView(view: MainView) {
+        this.mainView = view
     }
 
-
+    fun loadMovie() {
+        val task = LoadMovieTask(mainView.getActivity())
+        task.execute()
+    }
 }

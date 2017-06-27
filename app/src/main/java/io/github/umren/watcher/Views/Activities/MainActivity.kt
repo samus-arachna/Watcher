@@ -22,10 +22,13 @@ import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
 import io.github.umren.watcher.Interactors.Tasks.LoadMovieTask
 import io.github.umren.watcher.Views.Presenters.MainActivityPresenter
+import io.github.umren.watcher.Views.View.MainView
 import kotlinx.android.synthetic.main.content_main.*
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MainView {
+
+    lateinit internal var Presenter: MainActivityPresenter
 
     var loadedMovie: Movie? = null
     var isLoading: Boolean = false
@@ -49,10 +52,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.menu.getItem(0).isChecked = true
 
-        // TODO initialize presenter
+        // initialize presenter
+        Presenter = MainActivityPresenter()
+        Presenter.attachView(this)
 
-
-        loadMovie()
+        // load movie
+        Presenter.loadMovie()
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -104,7 +109,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val view = findViewById(R.id.action_refresh)
                 val rotation = AnimationUtils.loadAnimation(this, R.anim.rotation)
                 view.startAnimation(rotation)
-                loadMovie()
+                Presenter.loadMovie()
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -131,10 +136,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    /*
     fun loadMovie() {
         val task = LoadMovieTask(this)
 
         task.execute()
+    }
+    */
+
+    override fun getActivity(): MainActivity {
+        return this
     }
 
     fun clickBtnFavorite(item: MenuItem) {
