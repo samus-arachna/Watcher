@@ -20,6 +20,7 @@ import io.github.umren.watcher.Views.Fragments.AboutFragment
 import io.github.umren.watcher.Entities.Movie
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
+import io.github.umren.watcher.Utils.toast
 import io.github.umren.watcher.Views.Presenters.MainActivityPresenter
 import io.github.umren.watcher.Views.View.MainView
 import kotlinx.android.synthetic.main.content_main.*
@@ -52,11 +53,31 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.menu.getItem(0).isChecked = true
 
         // initialize presenter
-        Presenter = MainActivityPresenter()
-        Presenter.attachView(this)
+        attachPresenter()
 
         // load movie
-        Presenter.loadMovie()
+        if (!isLoading) {
+            Presenter.loadMovie()
+        } else {
+            isLoading = false
+        }
+    }
+
+    fun attachPresenter() {
+        Presenter = MainActivityPresenter()
+
+        if (lastCustomNonConfigurationInstance != null) {
+            val movie = lastCustomNonConfigurationInstance as Movie
+            loadView(movie)
+            setBtnFavoriteIcon(movie)
+            isLoading = true
+        }
+
+        Presenter.attachView(this)
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): Any {
+        return loadedMovie!!
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -135,13 +156,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    /*
-    fun loadMovie() {
-        val task = LoadMovieTask(this)
-
-        task.execute()
-    }
-    */
 
     override fun getActivity(): MainActivity {
         return this

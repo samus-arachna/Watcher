@@ -6,7 +6,7 @@ import io.github.umren.watcher.Views.View.MainView
 
 class MainActivityPresenter : Presenter<MainView> {
 
-    lateinit private var mainView: MainView
+    lateinit var mainView: MainView
 
     override fun onCreate() {
 
