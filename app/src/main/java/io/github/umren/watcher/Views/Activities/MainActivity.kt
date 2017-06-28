@@ -20,7 +20,6 @@ import io.github.umren.watcher.Views.Fragments.AboutFragment
 import io.github.umren.watcher.Entities.Movie
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
-import io.github.umren.watcher.Interactors.Tasks.LoadMovieTask
 import io.github.umren.watcher.Views.Presenters.MainActivityPresenter
 import io.github.umren.watcher.Views.View.MainView
 import kotlinx.android.synthetic.main.content_main.*

@@ -1,31 +1,46 @@
 package io.github.umren.watcher.Views.Activities
 
+import android.support.design.widget.NavigationView
+import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
+import io.github.umren.watcher.Views.Adapters.FavoritesAdapter
 import io.github.umren.watcher.Views.Fragments.AboutFragment
+import io.github.umren.watcher.Views.Presenters.FavoritesActivityPresenter
+import io.github.umren.watcher.Views.View.FavoritesView
 import kotlinx.android.synthetic.main.activity_favorites.*
 import kotlinx.android.synthetic.main.content_favorites.*
 
 
-class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.support.design.widget.NavigationView.OnNavigationItemSelectedListener {
+class FavoritesActivity : AppCompatActivity(), OnNavigationItemSelectedListener, FavoritesView {
+
+    lateinit internal var Presenter: FavoritesActivityPresenter
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(io.github.umren.watcher.R.layout.activity_favorites)
+        setContentView(R.layout.activity_favorites)
 
         // set toolbar
-        val toolbar = findViewById(io.github.umren.watcher.R.id.toolbar) as android.support.v7.widget.Toolbar
+        val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
         // set drawer
-        val drawer = findViewById(io.github.umren.watcher.R.id.drawer_layout) as android.support.v4.widget.DrawerLayout
+        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
         val toggle = android.support.v7.app.ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer.addDrawerListener(toggle)
         toggle.syncState()
-        val navigationView = findViewById(io.github.umren.watcher.R.id.nav_view) as android.support.design.widget.NavigationView
+        val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.menu.getItem(1).isChecked = true
+
+        // init presenter
+        Presenter = FavoritesActivityPresenter()
+        Presenter.attachView(this)
 
         loadFavorites()
     }
@@ -39,7 +54,7 @@ class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.su
 
     fun loadFavorites() {
         val items = WatcherDatabaseHelper.Companion.getInstance(this).getFavorites()
-        val itemsAdapter = io.github.umren.watcher.Views.Adapters.FavoritesAdapter(this, items)
+        val itemsAdapter = FavoritesAdapter(this, items)
         favorites_list.adapter = itemsAdapter
 
         val listener = android.widget.AdapterView.OnItemClickListener { _, view, _, _ ->
@@ -52,9 +67,9 @@ class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.su
     }
 
     override fun onBackPressed() {
-        val drawer = findViewById(io.github.umren.watcher.R.id.drawer_layout) as android.support.v4.widget.DrawerLayout
-        if (drawer.isDrawerOpen(android.support.v4.view.GravityCompat.START)) {
-            drawer.closeDrawer(android.support.v4.view.GravityCompat.START)
+        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
@@ -66,21 +81,21 @@ class FavoritesActivity : android.support.v7.app.AppCompatActivity(), android.su
 
     override fun onNavigationItemSelected(item: android.view.MenuItem): Boolean {
         when (item.itemId) {
-            io.github.umren.watcher.R.id.get_movie -> {
+            R.id.get_movie -> {
                 val i = android.content.Intent(this, MainActivity::class.java)
                 startActivity(i)
             }
-            io.github.umren.watcher.R.id.favorites -> {
+            R.id.favorites -> {
 
             }
-            io.github.umren.watcher.R.id.about -> {
+            R.id.about -> {
                 val dialog = AboutFragment()
                 dialog.show(this.supportFragmentManager, "About")
             }
         }
 
-        val drawer = findViewById(io.github.umren.watcher.R.id.drawer_layout) as android.support.v4.widget.DrawerLayout
-        drawer.closeDrawer(android.support.v4.view.GravityCompat.START)
+        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
+        drawer.closeDrawer(GravityCompat.START)
         return true
     }
 }
