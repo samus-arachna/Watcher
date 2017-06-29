@@ -32,17 +32,6 @@ class FavoritesAdapter(context: Context, private val movies: ArrayList<Movie>) :
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        // OLD STUFF
-        /*
-        val retView: View = LayoutInflater.from(context).inflate(R.layout.item_favorite, parent, false)
-        val movie = getItem(position)
-
-        val tvName = retView.findViewById(R.id.movie_title) as TextView
-        tvName.text = movie.title
-        retView.tag = movie.id
-        */
-
-        // NEW STUFF
         val retView: View
         val viewHolder: ViewHolder
 
@@ -55,15 +44,14 @@ class FavoritesAdapter(context: Context, private val movies: ArrayList<Movie>) :
             // well set up the ViewHolder
             viewHolder = ViewHolder()
             viewHolder.txtItem = retView?.findViewById(R.id.movie_title) as TextView
-            //retView.tag = viewHolder OLD
             retView.setTag(R.id.tag_viewholder, viewHolder)
-            retView.setTag(R.id.tag_movie_id, getItem(position).id)
         } else {
             retView = convertView
             viewHolder = retView.getTag(R.id.tag_viewholder) as ViewHolder
         }
 
         viewHolder.txtItem?.text = getItem(position).title
+        retView.setTag(R.id.tag_movie_id, getItem(position).id)
 
         return retView
     }
