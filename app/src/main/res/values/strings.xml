@@ -26,4 +26,7 @@
         <a href="https://money.yandex.ru/to/41001897030626">Yandex.Money</a>,
         <a href="https://rocketbank.ru/konstantin.shevyakov">Card Transfer</a>.
     </string>
+
+    <item type="id" name="tag_viewholder" />
+    <item type="id" name="tag_movie_id" />
 </resources>

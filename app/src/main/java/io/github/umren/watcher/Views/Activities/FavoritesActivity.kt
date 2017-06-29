@@ -59,7 +59,7 @@ class FavoritesActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
 
         val listener = android.widget.AdapterView.OnItemClickListener { _, view, _, _ ->
             val i = android.content.Intent(this, MainActivity::class.java)
-            i.putExtra("movie_id", view.tag.toString())
+            i.putExtra("movie_id", view.getTag(R.id.tag_movie_id).toString())
             startActivity(i)
         }
 
