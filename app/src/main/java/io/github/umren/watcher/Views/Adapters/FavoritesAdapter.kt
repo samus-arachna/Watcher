@@ -16,6 +16,7 @@ class FavoritesAdapter(context: Context, private val movies: ArrayList<Movie>) :
 
     internal class ViewHolder {
         var txtItem: TextView? = null
+        var movieNumber: TextView? = null
     }
 
     override fun getItem(position: Int): Movie {
@@ -43,7 +44,8 @@ class FavoritesAdapter(context: Context, private val movies: ArrayList<Movie>) :
 
             // well set up the ViewHolder
             viewHolder = ViewHolder()
-            viewHolder.txtItem = retView?.findViewById(R.id.movie_title) as TextView
+            viewHolder.txtItem = retView.findViewById(R.id.movie_title) as TextView
+            viewHolder.movieNumber = retView.findViewById(R.id.movie_number) as TextView
             retView.setTag(R.id.tag_viewholder, viewHolder)
         } else {
             retView = convertView
@@ -51,6 +53,7 @@ class FavoritesAdapter(context: Context, private val movies: ArrayList<Movie>) :
         }
 
         viewHolder.txtItem?.text = getItem(position).title
+        viewHolder.movieNumber?.text = (position + 1).toString()
         retView.setTag(R.id.tag_movie_id, getItem(position).id)
 
         return retView
