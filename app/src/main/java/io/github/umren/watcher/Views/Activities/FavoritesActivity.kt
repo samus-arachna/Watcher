@@ -6,6 +6,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.View
 import io.github.umren.watcher.Interactors.Db.WatcherDatabaseHelper
 import io.github.umren.watcher.R
 import io.github.umren.watcher.Views.Adapters.FavoritesAdapter
@@ -64,6 +65,13 @@ class FavoritesActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         }
 
         favorites_list.onItemClickListener = listener
+
+        // show placeholder if there are no favorites
+        if (items.size == 0) {
+            favorites_nothing.visibility = View.VISIBLE
+        } else {
+            favorites_nothing.visibility = View.INVISIBLE
+        }
     }
 
     override fun onBackPressed() {
